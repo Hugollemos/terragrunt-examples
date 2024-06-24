@@ -22,7 +22,7 @@ jobs:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
           tg_dir: ${{ env.working_dir }}
-          run: 'hclfmt --terragrunt-check --terragrunt-diff'
+          tg_command: 'hclfmt --terragrunt-check --terragrunt-diff'
 
   plan:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
           tg_dir: ${{ env.working_dir }}
-          run: 'plan'
+          tg_command: 'plan'
 
   deploy:
     runs-on: ubuntu-latest
@@ -54,4 +54,4 @@ jobs:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
           tg_dir: ${{ env.working_dir }}
-          run: 'apply'
+          tg_command: 'apply'
