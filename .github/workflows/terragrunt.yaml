@@ -1,0 +1,38 @@
+name: 'Terragrunt CI'
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+jobs:
+  Terragrunt:
+    name: 'Terragrunt'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Terragrunt
+
+    - name: Terragrunt Init
+      run: terragrunt init --terragrunt-non-interactive
+      env:
+        aws: ${{ secrets.aws }}
+
+    - name: Terragrunt Plan
+      run: terragrunt run-all plan --terragrunt-non-interactive
+      env:
+        aws: ${{ secrets.aws }}
+
+    - name: Terragrunt Apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: terragrunt apply-all --terragrunt-non-interactive
+      env:
+        aws: ${{ secrets.aws }}
