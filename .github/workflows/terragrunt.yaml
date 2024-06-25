@@ -19,15 +19,6 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@main
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-          special-characters-workaround: true
-          retry-max-attempts: true
         
       - name: Check terragrunt HCL
         uses: gruntwork-io/terragrunt-action@v2
@@ -43,7 +34,16 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@main
-
+        
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          special-characters-workaround: true
+          retry-max-attempts: true
+          
       - name: Plan
         uses: gruntwork-io/terragrunt-action@v2
         with:
