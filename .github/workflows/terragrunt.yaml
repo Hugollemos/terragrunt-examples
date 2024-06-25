@@ -40,7 +40,8 @@ jobs:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
           tg_dir: ${{ env.working_dir_plan }}
-          tg_command: 'plan'
+          tg_command: 'terragrunt-log-level debug, plan'
+#          tg_command: 'plan'
 
 #  deploy:
 #    runs-on: ubuntu-latest
