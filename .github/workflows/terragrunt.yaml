@@ -20,11 +20,6 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@main
         
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          special-characters-workaround: true
-        
       - name: Check terragrunt HCL
         uses: gruntwork-io/terragrunt-action@v2
         with:
