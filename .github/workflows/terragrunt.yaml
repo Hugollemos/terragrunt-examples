@@ -8,7 +8,7 @@ env:
   tf_version: '1.5.7'
   tg_version: '0.53.2'
   working_dir: 'production'
-  working_dir_plan: 'production/us-east-1/components'
+  working_dir_plan: 'production/us-east-1/components/vpc'
 
 jobs:
   checks:
