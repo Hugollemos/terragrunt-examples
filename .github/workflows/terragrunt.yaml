@@ -8,6 +8,7 @@ env:
   tf_version: '1.5.7'
   tg_version: '0.53.2'
   working_dir: 'production'
+  working_dir_plan: 'production/us-east-1/components'
 
 jobs:
   checks:
@@ -36,7 +37,7 @@ jobs:
         with:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
-          tg_dir: ${{ env.working_dir }}
+          tg_dir: ${{ env.working_dir_plan }}
           tg_command: 'plan'
 
 #  deploy:
