@@ -9,8 +9,8 @@ env:
   tg_version: '0.53.2'
   working_dir: 'production'
   working_dir_plan: 'production/us-esast-1/components/vpc/'
-  AWS_ACCESS_KEY_ID: '{{ secrets.AWS_ACCESS_KEY_ID }}'
-  AWS_SECRET_ACCESS_KEY: '{{ secrets.AWS_SECRET_ACCESS_KEY }}'
+  AWS_ACCESS_KEY_ID: '{{ secrets.aws_access_key_id }}'
+  AWS_SECRET_ACCESS_KEY: '{{ secrets.aws_secret_access_key }}'
 
 jobs:
   checks:
