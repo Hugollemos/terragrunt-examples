@@ -27,6 +27,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           special-characters-workaround: true
+          retry-max-attempts: true
         
       - name: Check terragrunt HCL
         uses: gruntwork-io/terragrunt-action@v2
