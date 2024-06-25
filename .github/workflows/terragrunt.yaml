@@ -9,8 +9,6 @@ env:
   tg_version: '0.53.2'
   working_dir: 'production'
   working_dir_plan: 'production/us-esast-1/components/vpc/'
-  AWS_ACCESS_KEY_ID: '{{ secrets.aws_access_key_id }}'
-  AWS_SECRET_ACCESS_KEY: '{{ secrets.aws_secret_access_key }}'
 
 jobs:
   checks:
@@ -37,6 +35,8 @@ jobs:
       - name: Plan
         uses: gruntwork-io/terragrunt-action@v2
         with:
+          AWS_ACCESS_KEY_ID: '{{ secrets.aws_access_key_id }}'
+          AWS_SECRET_ACCESS_KEY: '{{ secrets.aws_secret_access_key }}'
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
           tg_dir: ${{ env.working_dir_plan }}
