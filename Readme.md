@@ -1,1 +1,0 @@
-Terragrunt.hcl é o arquivo no qual todos os outros vao herdar as configuraçoes 
